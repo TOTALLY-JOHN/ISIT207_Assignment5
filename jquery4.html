@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JQUERY4</title>
+    <style>
+        body {
+            background-image: url("https://images.pexels.com/photos/719609/pexels-photo-719609.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+            background-size: 100%;
+        }
+
+        #jquery4_container {
+            width: 900px;
+            height: 768px;
+            margin: 0px auto 0px auto;
+            border: 1px solid black;
+            background-color: white;
+        }
+
+        #jquery4_header {
+            height: 150px;
+            border-bottom: 1px solid black;
+            background-color: white;
+            text-align: center;
+        }
+
+        #dragItem {
+            width: 111px;
+            height: 111px;
+            background-color: darkgreen;
+            border: 1px solid black;
+        }
+
+        #droppableArea {
+            width: 151px;
+            height: 151px;
+            background-color: gainsboro;
+            border: 1px solid black;
+        }
+
+        .dropSuccessfully {
+            color: red;
+            font-weight: bold;
+        }
+
+        #resizableItem {
+            width:151px;
+            height:151px;
+            background-color: cadetblue;
+            border: 1px solid black;
+        }
+
+        #selectableArea {
+            position: absolute;
+            left:750px;
+            top:160px;
+        }
+
+        table {
+            border-collapse:collapse;
+        }
+
+        #selectableTableRow1 .ui-selecting {
+            background-color: mediumblue;
+        }
+
+        #selectableTableRow1 .ui-selected {
+            background-color: darkblue;
+            color: white;
+        }
+
+        #selectableTableRow2 .ui-selecting {
+            background-color: orange;
+        }
+
+        #selectableTableRow2 .ui-selected {
+            background-color: red;
+            color: white;
+        }
+
+        #sortableArea {
+            position: absolute;
+            left:750px;
+            top:331px;
+        }
+
+        #sortableList {
+            list-style-type:none;
+            margin:0;
+            padding:0;
+        }
+
+        #sortableList li {
+            width:350px;
+            height:40px;
+            font-size:22px;
+            text-align:center;
+        }
+    </style>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(document).ready($(function () {
+            $("#dragItem").draggable();
+            $("#droppableArea").droppable({
+                drop: function (event, ui) {
+                    $(this).addClass("dropSuccessfully").find("p").html("Dropped successfully!");
+                }
+            });
+            $("#resizableItem").resizable();
+            $("#selectableTableRow1").selectable();
+            $("#selectableTableRow2").selectable();
+            $("#sortableList").sortable();
+            $("#sortableList").disableSelection();
+        }));
+    </script>
+</head>
+<body>
+    <div id="jquery4_container">
+        <div id="jquery4_header">
+            <br />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/INTI_Logo.png" width="520" height="100" alt="intiLogo"/>&nbsp; &nbsp;
+            <img src="https://www.uow.edu.au/server/001/campaign/img/logo_uow.png" width="300" height="100" alt="uowLogo"/>
+        </div>
+        <div id="jquery4_body">
+            <h3 style="font-family:Verdana;">&nbsp;1) DRAG THIS ITEM.</h3>
+            <div id="dragItem"><p style="margin-top:35px; color:white;">DRAG THIS TO THE TARGET.</p></div>
+            
+            <h3 style="font-family:Verdana;">&nbsp;2) DRAG THE ITEM ABOVE TO THIS TARGET.</h3>
+            <div id="droppableArea"><p style="text-align:center;">PUT HERE!</p></div>
+
+            <h3 style="font-family:Verdana;">&nbsp;3) RESIZE THIS ITEM.</h3>
+            <div id="resizableItem"><p style="margin-top:35px; color:white;">RESIZE THIS ITEM.</p></div>
+
+            <div id="selectableArea">
+                <h3 style="font-family:Verdana;">4) SELECT EACH CONTENT</h3>
+                <table border="1">
+                    <tr id="selectableTableRow1">
+                        <td>WOLLONGONG</td>
+                        <td>INTI</td>
+                        <td>COVENTRY</td>
+                    </tr>
+                    <tr id="selectableTableRow2">
+                        <td>AUSTRALIA</td>
+                        <td>MALAYSIA</td>
+                        <td>UNITED KINGDOM</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div id="sortableArea">
+                <h3 style="font-family:Verdana;">5) SORT CONTENTS</h3>
+                <ul id="sortableList">
+                    <li class="ui-state-default">INTI COLLEGE SUBANG</li>
+                    <li class="ui-state-default">WOLLONGONG UNIVERSITY</li>
+                    <li class="ui-state-default">COVENTRY UNIVERSITY</li>
+                    <li class="ui-state-default">MONASH UNIVERSITY</li>
+                    <li class="ui-state-default">HARVARD UNIVERSITY</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

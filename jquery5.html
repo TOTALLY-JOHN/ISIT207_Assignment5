@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JQUERY5</title>
+    <style>
+        body {
+            background-image: url("https://images.pexels.com/photos/242616/pexels-photo-242616.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+        }
+
+        #jquery5_container {
+            width: 900px;
+            height: 1300px;
+            background-color: white;
+            margin: 0px auto 0px auto;
+            border: 2px solid black;
+        }
+
+        #jquery5_header {
+            height: 140px;
+            background-color: white;
+            border-bottom: 2px solid black;
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+    </style>
+
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+    <script language="javascript" type="text/javascript">
+        $(document).ready($(function () {
+            $("#dialogArea").dialog();
+            $(function () {
+                var icons = {
+                    header: "ui-icon-circle-arrow-e",
+                    activeHeader: "ui-icon-circle-arrow-s"
+                };
+                $("#accordionArea").accordion({
+                    icons: icons
+                });
+            });
+            $("#menuArea").menu();
+            $("#spinnerInput").spinner();
+            $("#getAnswer").on("click", function () {
+                if ($("#spinnerInput").val() == "6") {
+                    alert("Correct!");
+                }
+                else {
+                    alert("Incorrect!");
+                }
+            });
+            var tabs = $("#tabArea").tabs();
+            var ul = tabs.find("ul");
+            $(document).tooltip(); // TOOLTIP IS WHEN MOUSE HOVERS AN ELEMENT, A TITLE MESSAGE POPS UP.
+            $("#addTab").click(function () {
+                $("<li id='newList'><a href='#newtab'>HARVARD UNIVERSITY</a></li>").appendTo(ul);
+                $("<div id='newtab'><img src='https://timedotcom.files.wordpress.com/2015/02/harvard.jpg' width='600' height='400' alt='harvardImage'/></div>").appendTo(tabs);
+                tabs.tabs("refresh");
+            })
+            $("#deleteTab").on("click", function () {
+                $("#newtab").remove();
+                $("#newList").remove();
+            });
+        }));
+    </script>
+</head>
+<body>
+    <div id="jquery5_container">
+        <div id="jquery5_header">
+            <br />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/INTI_Logo.png" width="520" height="100" alt="intiLogo" />&nbsp; &nbsp;
+            <img src="https://www.uow.edu.au/server/001/campaign/img/logo_uow.png" width="300" height="100" alt="uowLogo" />
+        </div>
+        <div id="jquery5_body">
+            <!-- DIALOG HAS A TITLE BAR AND A CONTENT AREA -->
+            <div id="dialogArea" title="WELCOME">
+                <p>Welcome to INTI &amp; UOW University</p>
+            </div>
+
+            <!-- LIKE THUMBNAILS, IT IS TO DISPLAY COLLAPSIBLE CONTENT PANELS -->
+            <h2 style="font-family:Verdana;">&nbsp;INTRODUCTION OF UNIVERSITIES</h2>
+            <div id="accordionArea">
+                <h3>&nbsp;INTI UNIVERSITY</h3>
+                <div>
+                    <p>
+                        Inti International Universities &amp; Colleges are private
+                        university and colleges which are located in Malaysia.
+                        Of course, the main campus is Nilai Campus. However, there are
+                        several campuses like Subang, Kuala Lumpur, Penang, Sabah and Nilai.
+                        Inti is divided into some faculties which have their own pre-university,
+                        diploma and degree programs like AUP(American University Program),
+                        Arts &amp; Design, Biotechnology &amp; Life Sciences, Business,
+                        Computing &amp; Information Technology, Engineering, Hospitality,
+                        Culinary Arts, Law, Mass Communication, Postgraduate Studies, and etc.
+                    </p>
+                </div>
+                <h3>&nbsp;WOLLONGONG UNIVERISTY</h3>
+                <div>
+                    <p>
+                        UOW(University of Wollongong) is an Australian Public Research University
+                        in Wollongong, New South Wales, about 80 kilos south of Sydney in Australia.
+                        Wollongong University has been developed into several multi-campuses institution,
+                        both domestically and globally. There are some campuses like Dubai, Liverpool, Sydney.
+                        Its rank is the best 20 modern univerisities according to the QS Top 50 2019.
+                        In addition, it was ranked among the top 250 universities in the world based on
+                        QS World University Rankings 2020.
+                    </p>
+                </div>
+                <h3>&nbsp;COVENTRY UNIVERSITY</h3>
+                <div>
+                    <p>
+                        Coventry University is located in Coventry, England, which is a public
+                        research university. Coventry provides over 130 undergraduate
+                        degrees and one hundred postgraduate degrees. Nationally, it is
+                        ranked thirteenth according to the Guardian University tables
+                        2019, fourty-fourth by the Times and Sunday Times University
+                        Guide 2019.
+                    </p>
+                </div>
+            </div>
+
+            <!-- THEMEABLE MENU SHOWS NAVIGATION FOR USERS USING MOUSE OR KEYBOARD -->
+            <ul id="menuArea" style="position:absolute; left:20px; top:150px;">
+                <li><div><a href="https://newinti.edu.my">CAMPUS</a></div></li>
+                <li><div><a href="https://newinti.edu.my/why-inti/clubs-societies/">ACTIVITIES</a></div></li>
+                <li>
+                    <div>PROGRAMMES</div>
+                    <ul>
+                        <li>
+                            <div>UNDERGRAUDATE</div>
+                            <ul>
+                                <li><div><a href="https://newinti.edu.my/academic-programmes/art-design/">ART &amp; DESIGN</a></div></li>
+                                <li><div><a href="https://newinti.edu.my/academic-programmes/engineering/">ENGINEERING</a></div></li>
+                                <li><div><a href="https://newinti.edu.my/academic-programmes/american-university-program/">AUP(American University Program)</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div>POSTGRADUATE</div>
+                            <ul>
+                                <li><div><a href="https://newinti.edu.my/programme/master-in-information-technology-mit/">IT &amp; COMPUTING</a></div></li>
+                                <li><div><a href="https://newinti.edu.my/programme/doctor-of-philosophy-phd-in-applied-physics-by-research/">PHILOSOPHY</a></div></li>
+                                <li><div><a href="https://newinti.edu.my/programme/master-of-business-administration-mba-international-marketing-coventry-university-uk/">BUSINESS ADIMINISTRATION</a></div></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="ui-state-disabled"><div>SCHOLARSHIP (N/A)</div></li>
+            </ul>
+
+            <!-- IT IS TO IMPROVE THE TEXT INPUT FOR INPUTING NUMERIC VALUES WITH UP AND DOWN BUTTONS
+    AND ARROW KEY HANDLING -->
+            <h2 style="font-family:Verdana;">&nbsp;QUICK QUIZ OF THE NUMBER OF CAMPUS</h2>
+            <div id="spinnerArea">
+                <label style="font-size:18px; font-family:Verdana;" for="spinner">&nbsp;How many campuses in INTI? </label>
+                <input id="spinnerInput" title="Input the number of campuses in INTI" />
+                <button id="getAnswer">CHECK ANSWER</button>
+            </div><br />
+
+            <!-- TAB SHOWS A CONTENT AREA WITH MULTIPLE PANELS -->
+            <h2 style="font-family:Verdana;">&nbsp;PICTURES OF UNIVERSITIES</h2>
+            <button id="addTab">ADD TAB</button> <button id="deleteTab">DELETE TAB</button>
+            <div id="tabArea">
+                <ul id="tabTitle">
+                    <li><a class="origitnalTab" href="#tab1">INTI UNIVERSITY</a></li>
+                    <li><a class="origitnalTab" href="#tab2">WOLLONGONG UNIVERSITY</a></li>
+                    <li><a class="origitnalTab" href="#tab3">COVENTRY UNIVERSITY</a></li>
+                </ul>
+                <div id="tab1">
+                    <img src="https://newinti.edu.my/wp-content/uploads/2018/02/IICS533.jpg" width="600" height="400" alt="intiImage" />
+                </div>
+                <div id="tab2">
+                    <img src="https://d1pe6f90ru47yo.cloudfront.net/wp-content/uploads/2018/11/27104444/KDU-UC-Facade-600x375.jpg" width="600" height="400" alt="uowImage" />
+                </div>
+                <div id="tab3">
+                    <img src="https://www.coventry.ac.uk/globalassets/media/global/cov-uni-alan-berry-.jpeg" width="600" height="400" alt="coventryImage" />
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
